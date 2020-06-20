@@ -1,9 +1,9 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
+title: Welcome to my Brain
 image: /img/flavor_wheel.jpg
 heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+subheading: Beware - It is a weird place...
 mainpitch:
   title: Why Kaldi
   description: >

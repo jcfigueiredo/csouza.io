@@ -1,12 +1,41 @@
-# Project dependencies
-# https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
+# dependencies
 node_modules
-.cache/
-# Build directory
-public/
-static/admin/*.bundle.*
-.DS_Store
-yarn-error.log
+.pnp
+.pnp.js
 
-# Local Netlify folder
-.netlify
+# testing
+coverage
+
+# next.js
+.next/
+out/
+
+# production
+build
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# env
+.env*.local
+
+# vercel
+.vercel
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# screenshots (dev only)
+*.png
+*.jpeg
+
+# playwright
+.playwright-mcp/

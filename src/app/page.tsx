@@ -7,9 +7,10 @@ import {
   StaggerItem,
 } from "@/components/animated-section";
 import { Footer } from "@/components/footer";
+import { FocusGraphSection } from "@/components/focus-graph-section";
 import { experience } from "@/data/experience";
 import { bookCategories } from "@/data/books";
-import { focusAreas, interests } from "@/data/site";
+import { interests } from "@/data/site";
 
 export default function Home() {
   return (
@@ -35,18 +36,7 @@ export default function Home() {
               <div className="h-px flex-grow bg-slate-200 dark:bg-slate-800" />
             </div>
 
-            <StaggerContainer className="flex flex-wrap gap-3">
-              {focusAreas.map((area) => (
-                <StaggerItem key={area.label}>
-                  <div className="group relative px-5 py-3 rounded-2xl border transition-all duration-300 cursor-default bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-500/40 hover:shadow-md hover:shadow-blue-500/5 hover:-translate-y-0.5">
-                    <span className="mr-2">{area.emoji}</span>
-                    <span className="text-sm font-bold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                      {area.label}
-                    </span>
-                  </div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
+            <FocusGraphSection />
           </section>
         </AnimatedSection>
 
@@ -65,26 +55,63 @@ export default function Home() {
               {/* Center line — hidden on mobile */}
               <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 -translate-x-1/2" />
 
-              <StaggerContainer className="space-y-12 md:space-y-16">
+              {/* Mobile left rail */}
+              <div className="md:hidden absolute left-3 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800" />
+
+              <StaggerContainer className="space-y-10 md:space-y-16">
                 {experience.map((job, i) => {
                   const isLeft = i % 2 === 0;
+                  const isCurrent = i === 0;
 
                   return (
                     <StaggerItem key={job.company}>
-                      <div className="relative md:grid md:grid-cols-2 md:gap-12">
-                        {/* Timeline dot */}
+                      <div className="relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-12">
+                        {/* Mobile left-rail dot */}
+                        <div className="md:hidden absolute left-1.5 top-7 z-10">
+                          <div
+                            className={`w-3.5 h-3.5 rounded-full border-[2.5px] bg-[var(--bg)] dark:bg-[var(--bg-dark)] ${
+                              isCurrent
+                                ? "border-blue-500"
+                                : "border-blue-400 dark:border-blue-500"
+                            }`}
+                          />
+                          {isCurrent && (
+                            <div className="absolute inset-0 rounded-full border-2 border-blue-500/40 animate-ping" />
+                          )}
+                        </div>
+
+                        {/* Desktop center dot */}
                         <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 z-10 items-center justify-center">
-                          <div className="w-4 h-4 rounded-full border-[3px] border-blue-500 dark:border-blue-400 bg-[var(--bg)] dark:bg-[var(--bg-dark)]" />
+                          <div
+                            className={`w-4 h-4 rounded-full border-[3px] bg-[var(--bg)] dark:bg-[var(--bg-dark)] ${
+                              isCurrent
+                                ? "border-blue-500 dark:border-blue-400"
+                                : "border-blue-500 dark:border-blue-400"
+                            }`}
+                          />
+                          {isCurrent && (
+                            <div className="absolute w-6 h-6 rounded-full border-2 border-blue-500/40 animate-ping" />
+                          )}
                         </div>
 
                         {/* Card */}
                         <div
-                          className={`group p-7 rounded-[2rem] border transition-all duration-500 hover:-translate-y-1 bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 hover:shadow-xl dark:hover:bg-slate-800/60 ${
+                          className={`group p-7 rounded-[2rem] border transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
+                            isCurrent
+                              ? "bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800/60 dark:to-blue-900/20 border-blue-200/60 dark:border-blue-500/30 shadow-lg shadow-blue-500/5"
+                              : "bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 dark:hover:bg-slate-800/60"
+                          } ${
                             isLeft
                               ? "md:col-start-1 md:col-end-2"
                               : "md:col-start-2 md:col-end-3"
                           }`}
                         >
+                          {isCurrent && (
+                            <span className="absolute top-4 right-4 text-[9px] font-black font-mono text-blue-500 bg-blue-50 dark:bg-blue-500/10 px-2.5 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-500/20 uppercase tracking-wider">
+                              Now
+                            </span>
+                          )}
+
                           <div className="flex items-center gap-3 mb-4">
                             <Image
                               src={job.logo}
@@ -101,7 +128,7 @@ export default function Home() {
                                 {job.role}
                               </p>
                             </div>
-                            <span className="text-[10px] font-black font-mono text-slate-400 bg-slate-50 dark:bg-slate-900 px-3 py-1 rounded-full border border-slate-100 dark:border-slate-800 shrink-0">
+                            <span className="text-[10px] font-black font-mono text-slate-400 bg-slate-50 dark:bg-slate-900 px-3 py-1 rounded-full border border-slate-100 dark:border-slate-800 shrink-0 hidden sm:inline">
                               {job.period}
                             </span>
                           </div>
@@ -109,6 +136,21 @@ export default function Home() {
                           <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed mb-4">
                             {job.description}
                           </p>
+
+                          {/* Mobile: achievements inline */}
+                          {job.achievements.length > 0 && (
+                            <ul className="md:hidden mb-4 space-y-1.5">
+                              {job.achievements.map((a) => (
+                                <li
+                                  key={a}
+                                  className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400"
+                                >
+                                  <span className="w-1 h-1 rounded-full bg-blue-500/50 mt-1.5 shrink-0" />
+                                  {a}
+                                </li>
+                              ))}
+                            </ul>
+                          )}
 
                           <div className="flex flex-wrap gap-1.5">
                             {job.tech.map((t) => (
@@ -122,14 +164,35 @@ export default function Home() {
                           </div>
                         </div>
 
-                        {/* Empty space on the other side (desktop only) */}
+                        {/* Achievements — desktop only, opposite side */}
                         <div
-                          className={`hidden md:block ${
+                          className={`hidden md:flex flex-col justify-center ${
                             isLeft
                               ? "md:col-start-2 md:col-end-3"
                               : "md:col-start-1 md:col-end-2 md:row-start-1"
                           }`}
-                        />
+                        >
+                          {job.achievements.length > 0 && (
+                            <div className={isLeft ? "pl-4" : "pr-4 text-right"}>
+                              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500/70 mb-3 block">
+                                Key Milestones
+                              </span>
+                              <ul className={`space-y-2.5 ${isLeft ? "" : "flex flex-col items-end"}`}>
+                                {job.achievements.map((a) => (
+                                  <li
+                                    key={a}
+                                    className={`flex items-start gap-2.5 text-sm text-slate-500 dark:text-slate-400 leading-snug ${
+                                      isLeft ? "" : "flex-row-reverse text-right"
+                                    }`}
+                                  >
+                                    <span className="w-1.5 h-1.5 rounded-full bg-blue-500/40 mt-1.5 shrink-0" />
+                                    {a}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </StaggerItem>
                   );

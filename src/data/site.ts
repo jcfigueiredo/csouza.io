@@ -1,16 +1,3 @@
-export const focusAreas = [
-  { label: "AI Platform Eng", emoji: "🤖" },
-  { label: "Agentic Systems", emoji: "⚡" },
-  { label: "Developer Experience", emoji: "🛠" },
-  { label: "Domain-Driven Design", emoji: "🧩" },
-  { label: "Distributed Systems", emoji: "🌐" },
-  { label: "Hypermedia / HATEOAS", emoji: "🔗" },
-  { label: "Infrastructure as Code", emoji: "☁️" },
-  { label: "Lean & XP", emoji: "🚀" },
-  { label: "Org Building", emoji: "👥" },
-  { label: "0-to-1 Platforms", emoji: "🏗️" },
-] as const;
-
 export const interests = {
   published: {
     emoji: "📕",

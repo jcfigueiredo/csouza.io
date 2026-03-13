@@ -1,7 +1,11 @@
 import type { MDXComponents } from "mdx/types";
 
 function Accent({ children }: { children: React.ReactNode }) {
-  return <span className="text-indigo-500 font-bold">{children}</span>;
+  return (
+    <span className="text-blue-600 dark:text-blue-400 font-bold">
+      {children}
+    </span>
+  );
 }
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {

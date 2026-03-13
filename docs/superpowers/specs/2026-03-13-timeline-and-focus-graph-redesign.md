@@ -26,6 +26,7 @@ Two sections of csouza.io need redesign:
 
 **Data changes:**
 - Add `achievements: string[]` field to each entry in `src/data/experience.ts` (3–4 bullets per role).
+- Remove the `as const` assertion from the `experience` array and add an explicit `Experience` interface type annotation instead. The `as const` creates `readonly` tuple types that conflict with `string[]` in the interface.
 
 ### Focus Areas: 3D Grid Graph (R3F + drei)
 
@@ -68,28 +69,29 @@ Indirect connections (dashed, lower opacity):
 - `<Canvas>` embedded in the focus areas section.
 - Transparent background — blends with the page's existing bg.
 - Nodes: `<RoundedBox>` meshes from drei, arranged on the XY plane in the 4-row offset grid.
-- Text labels: drei `<Text>` component rendered on each node face.
+- Text labels: drei `<Text>` component for the text label only. Emoji is rendered as an HTML overlay via drei's `<Html>` component (standard SDF fonts used by `<Text>`/troika do not support emoji glyphs).
 - Top row (AI & Agents) nodes have blue emissive glow; other rows use neutral slate.
 - Connection lines: drei `<Line>` elements between connected nodes.
 
 **Interactions:**
 - Hover a node → it lifts on the Z-axis toward camera (+0.3 units), scales up ~1.1x, emissive glow intensifies.
 - Hover a node → connected lines brighten to full opacity, unconnected lines and nodes fade to ~0.2 opacity.
-- No drag/orbit — the camera has a fixed perspective with subtle idle drift (tiny sinusoidal movement on X/Y, ~0.5° amplitude).
+- No drag/orbit — the camera has a fixed perspective.
+- When `prefers-reduced-motion` is active, disable hover lift animation (keep highlight only).
 
 **Lighting:**
 - Ambient light (intensity ~0.6) for base visibility.
 - One directional light from above-right for subtle shadows.
 
 **Performance:**
-- `frameloop="demand"` on the Canvas — only re-renders when state changes (hover), not every frame.
-- `invalidate()` called on hover events to trigger re-render.
+- `frameloop="always"` on the Canvas — the 14 low-polygon nodes are very cheap to render, and this avoids complexity with manual `invalidate()` calls.
+- Keep the scene minimal: no post-processing, no shadows on the ground plane.
 
 **Mobile fallback (<768px):**
-- Do not render the `<Canvas>` at all.
+- Do not render the `<Canvas>` component in the React tree at all.
 - Render a flat CSS/HTML version instead: nodes as styled `<div>` tags in a 2-column grid, no connection lines.
-- Use a `useMediaQuery` hook or CSS `display:none`/`display:block` to switch.
-- This avoids loading the three.js bundle on mobile entirely (dynamic import).
+- Use a `useMediaQuery` hook to conditionally render `<FocusGraph>` vs `<FocusGraphFallback>`. **Important:** CSS `display:none` is NOT sufficient — the dynamic import must be prevented at the React level by not rendering the component, otherwise three.js will still be fetched.
+- This avoids loading the three.js bundle on mobile entirely.
 
 ## Architecture
 
@@ -106,7 +108,7 @@ Indirect connections (dashed, lower opacity):
 | File | Change |
 |------|--------|
 | `src/data/experience.ts` | Add `achievements: string[]` to each entry. |
-| `src/data/site.ts` | Remove `focusAreas` export (moved to `focus-areas.ts`). |
+| `src/data/site.ts` | Remove `focusAreas` export (moved to `focus-areas.ts`). Note: "Infrastructure as Code" is shortened to "Infra as Code" in the new data — intentional for node sizing. |
 | `src/app/page.tsx` | Replace focus areas tag cloud with `<FocusGraph />`. Update timeline section to render achievements on the opposite side + current role highlight. |
 | `src/components/animated-section.tsx` | No changes needed — the timeline and graph sections already use `AnimatedSection`. |
 | `package.json` | Add `@react-three/fiber` and `@react-three/drei`. |
@@ -211,9 +213,8 @@ In `src/app/page.tsx`, the timeline section updates:
 - `<Canvas frameloop="demand" camera={{ position: [0, 0, 8], fov: 50 }}>`.
 - Map `focusNodes` to 3D positions: `row` → Y (top to bottom), `col` → X (with per-row offset for the staggered effect).
 - Each node: `<RoundedBox>` with `<Text>` label. `onPointerOver`/`onPointerOut` to set hovered state.
-- Hovered node: `position.z` animates to +0.3 via `useSpring` from `@react-spring/three` or manual lerp in `useFrame`.
+- Hovered node: `position.z` animates to +0.3 via manual lerp in `useFrame` (no `@react-spring/three` dependency — keep bundle small).
 - Connection lines: `<Line>` from drei, opacity controlled by hover state.
-- Idle camera drift: small sinusoidal motion in `useFrame` (only when no hover active).
 
 `src/components/focus-graph-fallback.tsx`:
 - Simple CSS grid (2 columns on mobile).

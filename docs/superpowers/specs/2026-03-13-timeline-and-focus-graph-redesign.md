@@ -210,7 +210,7 @@ In `src/app/page.tsx`, the timeline section updates:
 
 `src/components/focus-graph.tsx`:
 - Dynamic import with `next/dynamic` and `ssr: false` (three.js cannot SSR).
-- `<Canvas frameloop="demand" camera={{ position: [0, 0, 8], fov: 50 }}>`.
+- `<Canvas frameloop="always" camera={{ position: [0, 0, 8], fov: 50 }}>`.
 - Map `focusNodes` to 3D positions: `row` → Y (top to bottom), `col` → X (with per-row offset for the staggered effect).
 - Each node: `<RoundedBox>` with `<Text>` label. `onPointerOver`/`onPointerOut` to set hovered state.
 - Hovered node: `position.z` animates to +0.3 via manual lerp in `useFrame` (no `@react-spring/three` dependency — keep bundle small).
@@ -229,7 +229,7 @@ In `src/app/page.tsx`, the timeline section updates:
 
 ## Build Sequence
 
-1. Add achievements data to `experience.ts`.
+1. Add achievements data to `experience.ts`. **First** remove `as const` and add the `Experience` interface type annotation, then add `achievements` arrays to each entry.
 2. Create `src/data/focus-areas.ts` with nodes and edges.
 3. Update timeline section in `page.tsx` (achievements, current role highlight, mobile layout).
 4. Install `@react-three/fiber` and `@react-three/drei`.

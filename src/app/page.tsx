@@ -10,7 +10,17 @@ import { Footer } from "@/components/footer";
 import { FocusGraphSection } from "@/components/focus-graph-section";
 import { experience } from "@/data/experience";
 import { bookCategories } from "@/data/books";
-import { interests } from "@/data/site";
+import { beyondCode, type InterestAccent } from "@/data/site";
+
+const emojiBg: Record<InterestAccent, string> = {
+  indigo: "bg-indigo-100 dark:bg-indigo-500/15",
+  amber: "bg-amber-100 dark:bg-amber-500/15",
+  cyan: "bg-cyan-100 dark:bg-cyan-500/15",
+  violet: "bg-violet-100 dark:bg-violet-500/15",
+  rose: "bg-rose-100 dark:bg-rose-500/15",
+  emerald: "bg-emerald-100 dark:bg-emerald-500/15",
+  sky: "bg-sky-100 dark:bg-sky-500/15",
+};
 
 export default function Home() {
   return (
@@ -219,63 +229,50 @@ export default function Home() {
               <div className="h-px flex-grow bg-slate-200 dark:bg-slate-800" />
             </div>
 
-            <div className="grid md:grid-cols-3 gap-5">
-              {/* Published — spans 2 cols */}
-              <div className="md:col-span-2 p-7 rounded-[2rem] border bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-indigo-500/10 dark:to-blue-500/10 border-indigo-200/60 dark:border-indigo-500/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg hover:shadow-indigo-500/5">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{interests.published.emoji}</span>
-                  <div>
-                    <h3 className="text-lg font-black mb-2 tracking-tight">
-                      {interests.published.title}
-                    </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                      {interests.published.body}
-                    </p>
-                  </div>
-                </div>
-              </div>
+            <StaggerContainer className="grid md:grid-cols-3 gap-4">
+              {beyondCode.map((item) => {
+                const isWide = item.span === 2;
+                const inner = (
+                  <>
+                    <div
+                      className={`w-11 h-11 rounded-xl ${emojiBg[item.accent]} flex items-center justify-center text-xl shrink-0 group-hover:scale-110 group-hover:-rotate-6 transition-all duration-300`}
+                    >
+                      {item.emoji}
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="text-sm font-black tracking-tight mb-1 group-hover:text-blue-500 transition-colors duration-300">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  </>
+                );
 
-              {/* Reading */}
-              <div className="p-7 rounded-[2rem] border bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-                <span className="text-3xl block mb-3">
-                  {interests.reading.emoji}
-                </span>
-                <h3 className="text-base font-black mb-2 tracking-tight">
-                  {interests.reading.title}
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {interests.reading.body}
-                </p>
-              </div>
-
-              {/* Curious */}
-              <div className="p-7 rounded-[2rem] border bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-                <span className="text-3xl block mb-3">
-                  {interests.curious.emoji}
-                </span>
-                <h3 className="text-base font-black mb-2 tracking-tight">
-                  {interests.curious.title}
-                </h3>
-                <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                  {interests.curious.body}
-                </p>
-              </div>
-
-              {/* Hobbies — spans 2 cols */}
-              <div className="md:col-span-2 p-7 rounded-[2rem] border bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 transition-all duration-500 hover:-translate-y-1 hover:shadow-lg">
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{interests.hobbies.emoji}</span>
-                  <div>
-                    <h3 className="text-base font-black mb-2 tracking-tight">
-                      {interests.hobbies.title}
-                    </h3>
-                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
-                      {interests.hobbies.body}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
+                return (
+                  <StaggerItem
+                    key={item.title}
+                    className={isWide ? "md:col-span-2" : ""}
+                  >
+                    {item.url ? (
+                      <a
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group flex items-start gap-4 p-6 rounded-[1.5rem] border bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl hover:border-blue-200 dark:hover:border-blue-500/30"
+                      >
+                        {inner}
+                      </a>
+                    ) : (
+                      <div className="group flex items-start gap-4 p-6 rounded-[1.5rem] border bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-black/20 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">
+                        {inner}
+                      </div>
+                    )}
+                  </StaggerItem>
+                );
+              })}
+            </StaggerContainer>
           </section>
         </AnimatedSection>
 
@@ -289,38 +286,41 @@ export default function Home() {
               <div className="h-px flex-grow bg-slate-200 dark:bg-slate-800" />
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-6">
+            <div className="grid lg:grid-cols-2 gap-4">
               {bookCategories.map((category) => (
                 <div
                   key={category.label}
-                  className="rounded-[2rem] border overflow-hidden bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700"
+                  className="rounded-[1.5rem] border overflow-hidden bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700"
                 >
-                  <div className="px-7 py-5 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
+                  <div className="px-5 py-3.5 border-b border-slate-100 dark:border-slate-700 flex items-center justify-between">
                     <span className="font-mono text-[10px] tracking-wider uppercase text-blue-500 font-bold">
                       {category.label}
                     </span>
                     <span className="font-mono text-[10px] text-slate-400">
-                      {category.books.length} books
+                      {category.books.length}
                     </span>
                   </div>
-                  <ul className="divide-y divide-slate-50 dark:divide-slate-700/50">
-                    {category.books.map((book) => (
-                      <li
-                        key={book.title}
-                        className="group px-7 py-3.5 hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors duration-200 flex items-center gap-3"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500/30 group-hover:bg-blue-500 shrink-0 transition-colors duration-200" />
-                        <div className="min-w-0">
-                          <span className="text-sm font-semibold group-hover:text-blue-500 transition-colors duration-300 block truncate">
-                            {book.title}
-                          </span>
-                          <span className="text-xs text-slate-400 block mt-0.5">
-                            {book.author}
-                          </span>
-                        </div>
-                      </li>
+                  <div className="px-5 py-4 flex flex-wrap gap-x-1 gap-y-0.5 leading-relaxed">
+                    {category.books.map((book, i) => (
+                      <span key={book.title} className="inline">
+                        <a
+                          href={`https://www.google.com/search?q=${encodeURIComponent(`${book.title} ${book.author}`)}`}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className={`text-sm hover:text-blue-500 transition-colors duration-200 ${
+                            book.featured
+                              ? "font-bold text-slate-800 dark:text-slate-100"
+                              : "text-slate-400 dark:text-slate-500"
+                          }`}
+                        >
+                          {book.title}
+                        </a>
+                        {i < category.books.length - 1 && (
+                          <span className="text-slate-300 dark:text-slate-700 mx-0.5">·</span>
+                        )}
+                      </span>
                     ))}
-                  </ul>
+                  </div>
                 </div>
               ))}
             </div>

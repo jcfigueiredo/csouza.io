@@ -50,7 +50,7 @@ export const experience: Experience[] = [
       "Cut average time from feature conception to business impact from two months to two weeks. Redesigned the product development process and trained the first generation of PMs.",
     tech: ["React", "TypeScript", "Ruby on Rails", "Kotlin"],
     achievements: [
-      "Unblocked Ember→React migration stalled for 2 years, finished in 3 months",
+      "Sprinted Ember→React migration stalled for 2 years, finished in 3 months",
       "New hires shipped to production within their first week",
       "Started internal communities for engineering practices",
     ],
@@ -65,7 +65,7 @@ export const experience: Experience[] = [
       "Led Search Platform and Search Data for all business units. Early internal advocate for generative AI — pitched leadership on both the opportunity and the existential threat as early as 2017.",
     tech: ["Elasticsearch", "Java", "Scala", "Python", "Kafka"],
     achievements: [
-      "Reduced architecture from 12 to 3 services — 15PB/month indexing",
+      "Reduced architecture from 12 to 3 services — 15PB/month ranking tuning",
       "Introduced IaC with Terraform and led bare metal → AWS migration",
       "Built log-based Kafka event pipeline for asset metadata lifecycle across teams",
     ],
@@ -77,12 +77,12 @@ export const experience: Experience[] = [
     period: "2015 – 2016",
     logo: "/logos/canary.png",
     description:
-      "Restructured the engineering org from vertical silos to horizontal multidisciplinary teams, cutting average development time by over 30%.",
+      "Redesigned the device-to-cloud communication architecture, simplifying the stack so the same user base could be served with a fraction of the previous infrastructure.",
     tech: ["Python", "AWS", "IoT", "Docker", "Microservices"],
     achievements: [
-      "Rearchitected device-to-cloud communication platform",
-      "Same user base served with 23% of previous infrastructure",
+      "Same user base served with only 23% of previous infrastructure",
       "$1.2M annual savings through AWS storage optimization",
+      "Restructured org from silos to horizontal teams — 30% faster delivery",
     ],
   },
   {

@@ -33,9 +33,13 @@ pnpm-debug.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# screenshots (dev only)
-*.png
-*.jpeg
+# screenshots (dev only, root only)
+/*.png
+/*.jpg
+/*.jpeg
+
+# keep public assets tracked
+!public/**
 
 # playwright
 .playwright-mcp/

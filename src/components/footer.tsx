@@ -14,7 +14,7 @@ export function Footer() {
           Claudio F. Souza
         </p>
         <p className="text-[10px] font-mono opacity-50">
-          SHIPPING SINCE 2004 • NEW YORK, NY
+          SHIPPING SINCE 1997 • WESTPORT, CT
         </p>
       </div>
     </footer>

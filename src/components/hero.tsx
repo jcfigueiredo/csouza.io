@@ -25,27 +25,27 @@ export function Hero() {
   return (
     <motion.section
       id="about"
-      className="max-w-3xl mb-32 pt-8 scroll-mt-20"
+      className="max-w-4xl mb-32 pt-4 scroll-mt-20"
       initial={reduced ? "visible" : "hidden"}
       animate="visible"
       variants={containerVariants}
     >
       <motion.div variants={itemVariants}>
-        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-8 bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
+        <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-5 bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
           <Sparkles size={14} />
-          <span>Engineering × Product × AI</span>
+          <span>Platforms · Teams · AI</span>
         </div>
       </motion.div>
 
       <motion.h1
-        className="text-5xl md:text-6xl lg:text-7xl font-black leading-[1.05] mb-10 tracking-tight"
+        className="text-5xl md:text-6xl font-black leading-[1.05] mb-10 tracking-tight"
         variants={itemVariants}
       >
-        Designing{" "}
+        Every complex problem is just a{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">
-          Agentic
-        </span>{" "}
-        Systems for humans.
+          puzzle
+        </span>
+        .
       </motion.h1>
 
       <motion.div variants={itemVariants}>
@@ -70,30 +70,58 @@ export function Hero() {
 
 function HeroAbout() {
   return (
-    <div className="space-y-6 text-xl leading-relaxed font-medium text-slate-600 dark:text-slate-400 mb-12">
+    <div className="space-y-5 text-xl leading-relaxed font-medium text-slate-600 dark:text-slate-400 mb-12">
       <p>
-        I&rsquo;m an engineer by trade and a builder by nature. Originally from{" "}
+        Hi, I&rsquo;m{" "}
+        <strong className="text-slate-900 dark:text-white font-bold">
+          Cláudio
+        </strong>{" "}
+        — a Brazilian-American from{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
           Rio de Janeiro
         </strong>
-        , I now call New York home.
+        , now in{" "}
+        <strong className="text-slate-900 dark:text-white font-bold">
+          New England
+        </strong>
+        . I grew up in Brazil&rsquo;s early-2000s tech scene, where you learned
+        whatever the project needed by tomorrow. That made me a generalist by
+        necessity and a{" "}
+        <strong className="text-slate-900 dark:text-white font-bold">
+          builder by nature
+        </strong>
+        .
       </p>
       <p>
-        Over two decades, I&rsquo;ve built software across thirty languages. My
-        conviction is in{" "}
+        In 2004 I founded{" "}
+        <strong className="text-slate-900 dark:text-white font-bold">
+          Deus Ex Machina
+        </strong>
+        , a firm that salvaged failed software projects — money-back guarantee,
+        30+ deliveries in three years. That&rsquo;s where I learned that{" "}
         <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
-          Lean & XP
+          any complex problem is just a puzzle made of smaller puzzles
         </em>
-        —shipping early, learning fast, and keeping systems simple.
+        .
       </p>
       <p>
-        I have the most fun working where{" "}
+        Twenty-plus years, thirty languages, and a handful of startups later,
+        I&rsquo;m most energized by{" "}
         <span className="text-blue-600 dark:text-blue-400 font-bold">
-          engineering meets product
+          creating things that genuinely change how people work
         </span>
-        . Lately, that&rsquo;s meant figuring out how Agentic AI actually fits
-        into real-world complex systems — and building the platforms that make it
-        possible.
+        . In the past that meant building frameworks for developers, growing and
+        managing teams, and leading product strategy. Right now it means
+        building{" "}
+        <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
+          Agentic AI
+        </em>{" "}
+        platforms where the technical and the human intersect.
+      </p>
+      <p className="text-lg">
+        Off screen: tennis, Lego, mechanical puzzles, scuba diving, sci-fi,
+        RPGs, videogames, reading, building a compiler for fun, and custom
+        water-cooled PCs.
       </p>
     </div>
   );

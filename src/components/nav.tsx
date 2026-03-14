@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { ThemeToggle } from "./theme-toggle";
 import { SocialIcon } from "./social-icon";
 import { socials } from "@/data/site";
@@ -22,15 +23,20 @@ export function Nav() {
         href="#"
         className="flex items-center space-x-3 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-xl"
       >
-        <div className="w-11 h-11 bg-gradient-to-br from-indigo-500 to-blue-600 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:rotate-6 transition-transform">
-          C
-        </div>
+        <Image
+          src="/avatar.png"
+          alt="Claudio Souza"
+          width={44}
+          height={44}
+          className="w-11 h-11 rounded-2xl shadow-md shadow-slate-300/80 dark:shadow-black/40 dark:ring-1 dark:ring-slate-700/60 group-hover:rotate-6 group-hover:shadow-lg transition-all duration-300"
+        />
         <div className="flex flex-col">
           <span className="font-black text-lg tracking-tight leading-none">
             Claudio Souza
           </span>
-          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-mono">
-            Systems Builder
+          <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 font-mono" aria-label="Engineer, Author, Dad, Happy person">
+            <span className="hidden sm:inline">Engineer | Author | Dad | Happy person</span>
+            <span className="sm:hidden" aria-hidden="true">⚙️ ✍️ 👨‍👧‍👦 😊</span>
           </span>
         </div>
       </a>

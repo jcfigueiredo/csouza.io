@@ -23,11 +23,11 @@ export default function Home() {
 
       <Nav />
 
-      <main className="relative max-w-6xl mx-auto px-6 md:px-8 pt-12">
+      <main className="relative max-w-6xl mx-auto px-6 md:px-8 pt-6">
         <Hero />
 
         {/* ─── Focus Areas ─── */}
-        <AnimatedSection className="mb-32">
+        {/* <AnimatedSection className="mb-32">
           <section id="focus" className="scroll-mt-20">
             <div className="flex items-center space-x-6 mb-12">
               <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
@@ -38,7 +38,7 @@ export default function Home() {
 
             <FocusGraphSection />
           </section>
-        </AnimatedSection>
+        </AnimatedSection> */}
 
         {/* ─── Timeline ─── */}
         <AnimatedSection className="mb-32">
@@ -66,8 +66,8 @@ export default function Home() {
                   return (
                     <StaggerItem key={job.company}>
                       <div className="relative pl-10 md:pl-0 md:grid md:grid-cols-2 md:gap-12">
-                        {/* Mobile left-rail dot */}
-                        <div className="md:hidden absolute left-1.5 top-7 z-10">
+                        {/* Mobile left-rail dot — vertically centered */}
+                        <div className="md:hidden absolute left-1.5 top-1/2 -translate-y-1/2 z-10">
                           <div
                             className={`w-3.5 h-3.5 rounded-full border-[2.5px] bg-[var(--bg)] dark:bg-[var(--bg-dark)] ${
                               isCurrent
@@ -80,8 +80,8 @@ export default function Home() {
                           )}
                         </div>
 
-                        {/* Desktop center dot */}
-                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-6 z-10 items-center justify-center">
+                        {/* Desktop center dot — vertically centered in row */}
+                        <div className="hidden md:flex absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 items-center justify-center">
                           <div
                             className={`w-4 h-4 rounded-full border-[3px] bg-[var(--bg)] dark:bg-[var(--bg-dark)] ${
                               isCurrent
@@ -99,7 +99,7 @@ export default function Home() {
                           className={`group p-7 rounded-[2rem] border transition-all duration-500 hover:-translate-y-1 hover:shadow-xl ${
                             isCurrent
                               ? "bg-gradient-to-br from-white to-blue-50/50 dark:from-slate-800/60 dark:to-blue-900/20 border-blue-200/60 dark:border-blue-500/30 shadow-lg shadow-blue-500/5"
-                              : "bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 dark:hover:bg-slate-800/60"
+                              : "bg-white dark:bg-slate-800/40 border-slate-100 dark:border-slate-700 shadow-lg shadow-slate-200/50 dark:shadow-black/20 dark:hover:bg-slate-800/60"
                           } ${
                             isLeft
                               ? "md:col-start-1 md:col-end-2"
@@ -122,7 +122,14 @@ export default function Home() {
                             />
                             <div className="flex-1 min-w-0">
                               <h3 className="text-lg font-black tracking-tight group-hover:text-blue-500 transition-colors">
-                                {job.company}
+                                <a
+                                  href={job.url}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="hover:underline decoration-blue-500/30 underline-offset-4"
+                                >
+                                  {job.company}
+                                </a>
                               </h3>
                               <p className="text-blue-500 font-bold text-xs uppercase tracking-wider">
                                 {job.role}

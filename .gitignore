@@ -39,3 +39,6 @@ next-env.d.ts
 
 # playwright
 .playwright-mcp/
+
+# private docs
+docs/Claudio_Souza_Bio.md

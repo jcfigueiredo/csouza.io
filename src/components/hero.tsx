@@ -70,12 +70,15 @@ export function Hero() {
 
 function HeroAbout() {
   return (
-    <div className="space-y-5 text-xl leading-relaxed font-medium text-slate-600 dark:text-slate-400 mb-12">
+    <div className="space-y-3 text-xl leading-relaxed font-medium text-slate-600 dark:text-slate-400 mb-12">
       <p>
         Hi, I&rsquo;m{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
           Cláudio
         </strong>{" "}
+        <span className="text-base text-slate-400 dark:text-slate-500 font-normal">
+          /klaw-dee-oh/
+        </span>{" "}
         — a Brazilian-American from{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
           Rio de Janeiro
@@ -112,14 +115,14 @@ function HeroAbout() {
         .
       </p>
       <p>
-        Twenty-plus years, thirty languages, and a handful of startups later,
-        I&rsquo;m most energized by{" "}
+        Twenty-plus years, over twenty programming languages, and a handful of
+        startups later, I&rsquo;m most energized by{" "}
         <span className="text-blue-600 dark:text-blue-400 font-bold">
           creating things that genuinely change how people work
         </span>
-        . In the past that meant building frameworks for developers, growing and
-        managing teams, and leading product strategy. Right now it means
-        building{" "}
+        . In the past that ranged from building frontend and backend frameworks,
+        to infrastructure, to growing teams and leading product strategy. Right
+        now it means building{" "}
         <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
           Agentic AI
         </em>{" "}

@@ -35,14 +35,13 @@ export const bookCategories: BookCategory[] = [
   {
     label: "Leadership & Management",
     books: [
-      { title: "Lean Software Development", author: "Mary & Tom Poppendieck" },
       { title: "Implementing Lean Software Development", author: "Mary & Tom Poppendieck" },
       { title: "The Toyota Way", author: "Jeffrey K. Liker", featured: true },
       { title: "The Lean Startup", author: "Eric Ries", featured: true },
       { title: "The Principles of Product Development Flow", author: "Donald G. Reinertsen" },
       { title: "Extreme Programming Explained", author: "Kent Beck", featured: true },
       { title: "Peopleware", author: "Tom DeMarco & Timothy Lister", featured: true },
-      { title: "How to Win Friends & Influence People", author: "Dale Carnegie", featured: true },
+      { title: "Lean Software Development", author: "Mary & Tom Poppendieck", featured: true },
       { title: "The Satir Model", author: "Virginia Satir" },
       { title: "User Story Mapping", author: "Jeff Patton" },
       { title: "User Stories Applied", author: "Mike Cohn" },

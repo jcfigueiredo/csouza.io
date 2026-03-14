@@ -76,6 +76,10 @@ export default function Home() {
                 ))}
               </StaggerContainer>
             </div>
+
+            <p className="text-[13px] text-slate-400 dark:text-slate-500 mt-8 text-center">
+              Previous experience includes DXM Technology (Founder), Perlink Consulting, FGV, and A&C Tecnologia.
+            </p>
           </section>
         </AnimatedSection>
 
@@ -207,6 +211,19 @@ export default function Home() {
                 );
               })}
             </div>
+
+            <p className="text-[13px] text-slate-400 dark:text-slate-500 mt-6 text-center">
+              ...and many more fiction and nonfiction. Currently 65% into my personal goal of reading all{" "}
+              <a
+                href="https://en.wikipedia.org/wiki/Hugo_Award_for_Best_Novel"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                Hugo Award winners
+              </a>
+              .
+            </p>
           </section>
         </AnimatedSection>
 

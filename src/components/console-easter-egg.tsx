@@ -39,6 +39,11 @@ export function ConsoleEasterEgg() {
       "%c💻 Or make a commit → https://github.com/jcfigueiredo",
       "color: #34d399; font-size: 13px; font-weight: bold; padding: 4px 0;",
     );
+
+    console.log(
+      "%c😊 I hope you're having a nice day! :)",
+      "color: #fb923c; font-size: 14px; font-weight: bold; padding: 8px 0;",
+    );
   }, []);
 
   return null;

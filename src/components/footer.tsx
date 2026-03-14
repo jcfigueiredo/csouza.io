@@ -11,7 +11,7 @@ export function Footer() {
       </div>
       <div className="text-center md:text-right">
         <p className="text-xs font-black uppercase tracking-widest mb-1">
-          Claudio F. Souza
+          Claudio Souza
         </p>
         <p className="text-[10px] font-mono opacity-50">
           SHIPPING SINCE 1997 • WESTPORT, CT

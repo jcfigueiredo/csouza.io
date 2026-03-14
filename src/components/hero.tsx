@@ -98,9 +98,16 @@ function HeroAbout() {
           Deus Ex Machina
         </strong>
         , a firm that salvaged failed software projects — money-back guarantee,
-        30+ deliveries in three years. That&rsquo;s where I learned that{" "}
+        30+ deliveries in three years. That kind of pace and pressure is what
+        taught me the value of Lean, XP, automated testing, and reusable
+        components. It also taught me that when you approach things from{" "}
+        <em className="not-italic underline decoration-wavy decoration-blue-500/40 underline-offset-4">
+          first principles
+        </em>
+        ,{" "}
+        any complex problem is just{" "}
         <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
-          any complex problem is just a puzzle made of smaller puzzles
+          a puzzle made of smaller puzzles
         </em>
         .
       </p>

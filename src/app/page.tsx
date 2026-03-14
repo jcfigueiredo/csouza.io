@@ -39,7 +39,7 @@ export default function Home() {
         {/* ─── Focus Areas ─── */}
         {/* <AnimatedSection className="mb-32">
           <section id="focus" className="scroll-mt-20">
-            <div className="flex items-center space-x-6 mb-12">
+            <div className="flex items-center space-x-6 mb-8 md:mb-12">
               <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
                 What I Build Around
               </h2>
@@ -51,9 +51,9 @@ export default function Home() {
         </AnimatedSection> */}
 
         {/* ─── Timeline ─── */}
-        <AnimatedSection className="mb-32">
+        <AnimatedSection className="mb-16 md:mb-32">
           <section id="work" className="scroll-mt-20">
-            <div className="flex items-center space-x-6 mb-12">
+            <div className="flex items-center space-x-6 mb-8 md:mb-12">
               <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
                 The Journey
               </h2>
@@ -84,9 +84,9 @@ export default function Home() {
         </AnimatedSection>
 
         {/* ─── Beyond the Code ─── */}
-        <AnimatedSection className="mb-32">
+        <AnimatedSection className="mb-16 md:mb-32">
           <section id="interests" className="scroll-mt-20">
-            <div className="flex items-center space-x-6 mb-12">
+            <div className="flex items-center space-x-6 mb-8 md:mb-12">
               <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
                 Beyond the Code
               </h2>
@@ -141,9 +141,9 @@ export default function Home() {
         </AnimatedSection>
 
         {/* ─── Full Bookshelf ─── */}
-        <AnimatedSection className="mb-20">
+        <AnimatedSection className="mb-12 md:mb-20">
           <section id="bookshelf" className="scroll-mt-20">
-            <div className="flex items-center space-x-6 mb-12">
+            <div className="flex items-center space-x-6 mb-8 md:mb-12">
               <h2 className="text-xs font-black uppercase tracking-[0.3em] text-blue-600 dark:text-blue-400">
                 Bookshelf
               </h2>

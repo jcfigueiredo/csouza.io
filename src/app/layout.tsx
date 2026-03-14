@@ -18,8 +18,8 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Claudio F. Souza",
-    template: "%s — Claudio F. Souza",
+    default: "Claudio Souza",
+    template: "%s — Claudio Souza",
   },
   description:
     "Engineer, builder, and AI practitioner. Designing agentic systems for humans.",

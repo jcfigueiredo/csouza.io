@@ -25,7 +25,7 @@ export function Hero() {
   return (
     <motion.section
       id="about"
-      className="max-w-4xl mb-32 pt-4 scroll-mt-20"
+      className="max-w-4xl mb-16 md:mb-32 pt-4 scroll-mt-20"
       initial={reduced ? "visible" : "hidden"}
       animate="visible"
       variants={containerVariants}
@@ -79,11 +79,11 @@ function HeroAbout() {
         <span className="text-base text-slate-400 dark:text-slate-500 font-normal">
           /klaw-dee-oh/
         </span>{" "}
-        — a Brazilian-American from{" "}
+        — a Brazilian-American born and raised in{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
           Rio de Janeiro
         </strong>
-        , now in{" "}
+        , now living in{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
           New England
         </strong>

@@ -88,7 +88,7 @@ export function TimelineItem({
                 href={job.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline decoration-blue-500/30 underline-offset-4"
+                className="hover:squiggle"
                 onClick={(e) => e.stopPropagation()}
               >
                 {job.company}

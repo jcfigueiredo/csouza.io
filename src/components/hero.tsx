@@ -104,12 +104,12 @@ function HeroAbout() {
         30+ deliveries in three years. That kind of pace and pressure is what
         taught me the value of Lean, XP, automated testing, and reusable
         components. It also taught me that when you approach things from{" "}
-        <em className="not-italic underline decoration-wavy decoration-blue-500/40 underline-offset-4">
+        <em className="not-italic squiggle">
           first principles
         </em>
         ,{" "}
         any complex problem is just{" "}
-        <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
+        <em className="not-italic squiggle">
           a puzzle made of smaller puzzles
         </em>
         .
@@ -123,7 +123,7 @@ function HeroAbout() {
         . In the past that ranged from building frontend and backend frameworks,
         to infrastructure, to growing teams and leading product strategy. Right
         now it means building{" "}
-        <em className="not-italic underline decoration-blue-500/30 underline-offset-4">
+        <em className="not-italic squiggle">
           Agentic AI
         </em>{" "}
         platforms where the technical and the human intersect.

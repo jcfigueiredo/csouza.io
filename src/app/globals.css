@@ -21,6 +21,13 @@ html {
   to { transform: rotate(360deg); }
 }
 
+@utility squiggle {
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: rgb(59 130 246 / 0.4);
+  text-underline-offset: 4px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

@@ -74,7 +74,7 @@ function HeroAbout() {
       <p>
         Hi, I&rsquo;m{" "}
         <strong className="text-slate-900 dark:text-white font-bold">
-          Cláudio
+          Claudio
         </strong>{" "}
         <span className="text-base text-slate-400 dark:text-slate-500 font-normal">
           /klaw-dee-oh/

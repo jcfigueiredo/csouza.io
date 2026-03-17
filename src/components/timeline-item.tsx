@@ -127,17 +127,22 @@ export function TimelineItem({
 
                 {/* Mobile: achievements inline */}
                 {job.achievements.length > 0 && (
-                  <ul className="md:hidden mb-4 space-y-1.5">
-                    {job.achievements.map((a) => (
-                      <li
-                        key={a}
-                        className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400"
-                      >
-                        <span className="w-1 h-1 rounded-full bg-blue-500/50 mt-1.5 shrink-0" />
-                        {a}
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="md:hidden mb-4 border-t border-slate-100 dark:border-slate-700/50 pt-3 mt-3">
+                    <span className="text-[9px] font-black uppercase tracking-[0.2em] text-blue-500/70 mb-2 block">
+                      Key Milestones
+                    </span>
+                    <ul className="space-y-1.5">
+                      {job.achievements.map((a) => (
+                        <li
+                          key={a}
+                          className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-blue-500/40 mt-1.5 shrink-0" />
+                          {a}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
 
                 <div className="flex flex-wrap gap-1.5">

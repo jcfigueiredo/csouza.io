@@ -130,7 +130,7 @@ function HeroAbout() {
       </p>
       <p className="text-lg">
         Off screen: tennis, Lego, mechanical puzzles, scuba diving, sci-fi,
-        RPGs, videogames, reading, building a compiler for fun, and custom
+        RPGs, videogames, reading, building a programming language for fun, and custom
         water-cooled PCs.
       </p>
     </div>

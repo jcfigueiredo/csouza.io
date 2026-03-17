@@ -51,7 +51,10 @@ export function TimelineItem({
 
       {/* Card */}
       <div
-        className={`group rounded-[2rem] border transition-all duration-500 ${
+        onClick={() => setExpanded(!expanded)}
+        role="button"
+        aria-expanded={expanded}
+        className={`group rounded-[2rem] border transition-all duration-500 cursor-pointer ${
           expanded ? "p-7" : "p-5"
         } ${
           isCurrent
@@ -69,12 +72,8 @@ export function TimelineItem({
           </span>
         )}
 
-        {/* Header — always visible, clickable to toggle */}
-        <button
-          onClick={() => setExpanded(!expanded)}
-          className="w-full flex items-center gap-3 text-left cursor-pointer"
-          aria-expanded={expanded}
-        >
+        {/* Header — always visible */}
+        <div className="w-full flex items-center gap-3 text-left">
           <Image
             src={job.logo}
             alt={`${job.company} logo`}
@@ -109,7 +108,7 @@ export function TimelineItem({
               }`}
             />
           )}
-        </button>
+        </div>
 
         {/* Expandable content */}
         <AnimatePresence initial={false}>

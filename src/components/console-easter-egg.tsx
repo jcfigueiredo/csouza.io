@@ -25,7 +25,7 @@ export function ConsoleEasterEgg() {
     );
 
     console.log(
-      `%c🎁 As an Easter egg for you — here's a link to my resume, in Markdown. Have fun!\n%c${resumeUrl}`,
+      `%c🎁 As an Easter egg for you — here's a link to my resume's summary, in Markdown. Have fun, and reach out!\n%c${resumeUrl}`,
       "color: #a78bfa; font-size: 14px; padding: 4px 0;",
       "color: #facc15; font-size: 14px; font-weight: bold; padding: 4px 0;",
     );
